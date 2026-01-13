@@ -216,94 +216,94 @@ df_grouped = df_group_one.groupby(['drive-wheels'], as_index=False).agg({'price'
 
 df_gptest = df_clean[['drive-wheels','body-style','price']]
 grouped_test1 = df_gptest.groupby(['drive-wheels','body-style'], as_index=False).mean()
-print(grouped_test1)
+#print(grouped_test1)
 
 grouped_pivot = grouped_test1.pivot(index='drive-wheels', columns='body-style')
-print(grouped_pivot)
+#print(grouped_pivot)
 grouped_pivot = grouped_pivot.fillna(0) # fill missing values with 0
-print(grouped_pivot)
+#print(grouped_pivot)
 
 grouped_body_style = df_group_one.groupby(['body-style'], as_index=False).agg({'price':'mean'})
-print(grouped_body_style)  
+#print(grouped_body_style)  
 
 # heatmap
 #plt.pcolor(grouped_pivot, cmap='RdBu')
 #plt.colorbar()
 #plt.show()
 
-fig, ax = plt.subplots()
-im = ax.pcolor(grouped_pivot, cmap='RdBu')
+#fig, ax = plt.subplots()
+#im = ax.pcolor(grouped_pivot, cmap='RdBu')
 
 #label names
-row_labels = grouped_pivot.columns.levels[1]
-col_labels = grouped_pivot.index
+#row_labels = grouped_pivot.columns.levels[1]
+#col_labels = grouped_pivot.index
 
 #move ticks and labels to the center
-ax.set_xticks(np.arange(grouped_pivot.shape[1]) + 0.5, minor=False)
-ax.set_yticks(np.arange(grouped_pivot.shape[0]) + 0.5, minor=False)
+#ax.set_xticks(np.arange(grouped_pivot.shape[1]) + 0.5, minor=False)
+#ax.set_yticks(np.arange(grouped_pivot.shape[0]) + 0.5, minor=False)
 
 #insert labels
-ax.set_xticklabels(row_labels, minor=False)
-ax.set_yticklabels(col_labels, minor=False)
+#ax.set_xticklabels(row_labels, minor=False)
+#ax.set_yticklabels(col_labels, minor=False)
 
 #rotate the label if too long
-plt.xticks(rotation=90)
+#plt.xticks(rotation=90)
 
-fig.colorbar(im)
+#fig.colorbar(im)
 #plt.show()
 
 df_clean.select_dtypes(include=['number']).corr()
 
 pearson_coef, p_value = stats.pearsonr(df_clean['wheel-base'], df_clean['price'])
-print("The Pearson Correlation Coefficient between wheel-base and price is", pearson_coef, " with a P-value of P =", p_value)
+#print("The Pearson Correlation Coefficient between wheel-base and price is", pearson_coef, " with a P-value of P =", p_value)
 #Conclusion:
 #Since the p-value is < 0.001, the correlation between wheel-base and price is statistically significant.
 
 #pearson correlation between horsepower and price
 pearson_coef, p_value = stats.pearsonr(df_clean['horsepower'], df_clean['price'])
-print("The Pearson Correlation Coefficient between horsepower and price is", pearson_coef, " with a P-value of P =", p_value)   
+#print("The Pearson Correlation Coefficient between horsepower and price is", pearson_coef, " with a P-value of P =", p_value)   
 #conclusion:
 #Since the p-value is < 0.001, the correlation between horsepower and price is statistically significant.
 
 #pearson correlation between length and price
 pearson_coef, p_value = stats.pearsonr(df_clean['length'], df_clean['price'])
-print("The Pearson Correlation Coefficient between length and price is", pearson_coef, " with a P-value of P =", p_value)   
+#print("The Pearson Correlation Coefficient between length and price is", pearson_coef, " with a P-value of P =", p_value)   
 #Conclusion:
 #Since the p-value is < 0.001, the correlation between length and price is statistically significant.
 
 #pearson correlation between width and price
 pearson_coef, p_value = stats.pearsonr(df_clean['width'], df_clean['price'])
-print("The Pearson Correlation Coefficient between width and price is", pearson_coef, " with a P-value of P =", p_value)   
+#print("The Pearson Correlation Coefficient between width and price is", pearson_coef, " with a P-value of P =", p_value)   
 #Conclusion:
 #Since the p-value is < 0.001, the correlation between width and price is statistically significant.
 
 #pearson correlation between curb-weight and price
 pearson_coef, p_value = stats.pearsonr(df_clean['curb-weight'], df_clean['price'])
-print("The Pearson Correlation Coefficient between curb-weight and price is", pearson_coef, " with a P-value of P =", p_value)   
+#print("The Pearson Correlation Coefficient between curb-weight and price is", pearson_coef, " with a P-value of P =", p_value)   
 #Conclusion:
 #Since the p-value is < 0.001, the correlation between curb-weight and price is statistically significant.  
 
 #pearson correlation between engine-size and price
 pearson_coef, p_value = stats.pearsonr(df_clean['engine-size'], df_clean['price'])
-print("The Pearson Correlation Coefficient between engine-size and price is", pearson_coef, " with a P-value of P =", p_value)   
+#print("The Pearson Correlation Coefficient between engine-size and price is", pearson_coef, " with a P-value of P =", p_value)   
 #Conclusion:
 #Since the p-value is < 0.001, the correlation between engine-size and price is statistically significant.
 
 #pearson correlation between bore and price
 pearson_coef, p_value = stats.pearsonr(df_clean['bore'], df_clean['price'])
-print("The Pearson Correlation Coefficient between bore and price is", pearson_coef, " with a P-value of P =", p_value)   
+#print("The Pearson Correlation Coefficient between bore and price is", pearson_coef, " with a P-value of P =", p_value)   
 #Conclusion:
 #Since the p-value is < 0.001, the correlation between bore and price is statistically significant.
 
 #pearson correlation between city-mpg and price
 pearson_coef, p_value = stats.pearsonr(df_clean['city-mpg'], df_clean['price'])
-print("The Pearson Correlation Coefficient between city-mpg and price is", pearson_coef, " with a P-value of P =", p_value)   
+#print("The Pearson Correlation Coefficient between city-mpg and price is", pearson_coef, " with a P-value of P =", p_value)   
 #Conclusion:
 #Since the p-value is < 0.001, the correlation between city-mpg and price is statistically significant.
 
 #pearson correlation between highway-mpg and price
 pearson_coef, p_value = stats.pearsonr(df_clean['highway-mpg'], df_clean['price'])
-print("The Pearson Correlation Coefficient between highway-mpg and price is", pearson_coef, " with a P-value of P =", p_value)   
+#print("The Pearson Correlation Coefficient between highway-mpg and price is", pearson_coef, " with a P-value of P =", p_value)   
 #Conclusion:
 #Since the p-value is < 0.001, the correlation between highway-mpg and price is statistically significant.  
 
@@ -328,3 +328,187 @@ As we now move into building machine learning models to automate our analysis, f
 meaningfully affect our target variable will improve our model's prediction performance.
 
 """
+
+""" Model Development"""
+usedcars_df = pd.read_csv('automobile/automobileEDA.csv')
+
+# linear regression model
+from sklearn.linear_model import LinearRegression
+
+# Create the linear regression model object:
+lm=LinearRegression()
+lm
+
+X = usedcars_df[['highway-mpg']]
+Y = usedcars_df['price']
+lm.fit(X,Y)
+
+Yhat=lm.predict(X)
+#print(Yhat[0:5]) # display the first 5 predicted values
+#print(lm.intercept_)
+#print(lm.coef_)
+# y = 38423.31 - 821.73 x
+
+lm1=LinearRegression()
+X1 = usedcars_df[['engine-size']]
+Y1 = usedcars_df['price']
+lm1.fit(X1,Y1)
+
+Yhat1=lm1.predict(X1)
+#print(Yhat1[0:5]) # display the first 5 predicted values
+#print(lm1.intercept_)
+#print(lm1.coef_)
+# y1 = -7963.34 + 166.86 x1
+# price = -7963.34 + 166.86 * engine-size
+
+# Multiple Linear Regression
+Z = usedcars_df[['horsepower', 'curb-weight', 'engine-size', 'highway-mpg']]
+lm.fit(Z, usedcars_df['price'])
+#print(lm.intercept_)
+#print(lm.coef_)
+# price = -15806.62 + 53.53 * horsepower + 4.71 * curb-weight + 81.18 * engine-size + 36.06 * highway-mpg
+
+lm2=LinearRegression()
+Z1 = usedcars_df[['normalized-losses', 'highway-mpg']]
+lm2.fit(Z1, usedcars_df['price'])   
+
+#print(lm2.intercept_)
+#print(lm2.coef_)
+# price = 38201.31 + 53.5 * normalized-losses - 821.73 * highway-mpg
+
+# Model evaluation using visualization
+import seaborn as sns
+
+width = 12
+height = 10
+#plt.figure(figsize=(width, height))
+#sns.regplot(x="highway-mpg", y="price", data=usedcars_df)
+#plt.ylim(0,)
+#plt.show()
+
+#sns.regplot(x="peak-rpm", y="price", data=usedcars_df)
+#plt.ylim(0,)
+#plt.show()
+
+highway_corr = usedcars_df[["peak-rpm","highway-mpg", "price"]].corr()
+print("This is correlation between highway-mpg and price" + str(highway_corr))
+
+width = 12
+height = 10
+#plt.figure(figsize=(width, height))
+#sns.residplot(x=usedcars_df['highway-mpg'], y=usedcars_df['price'])
+#plt.show()
+# We can see that the residuals are not randomly distributed. 
+# This is an indication that there is a non-linear relationship between highway-mpg and price.
+
+# multiple linear regression
+Yhat = lm.predict(Z)
+plt.figure(figsize=(width, height))
+ax1 = sns.displot(usedcars_df['price'], color="r", label="Actual Value")
+sns.displot(Yhat, color="b", label="Fitted Values" , ax=ax1)
+plt.title('Actual vs Fitted Values for Price')
+plt.xlabel('Price (in dollars)')
+plt.ylabel('Proportion of Cars')
+#plt.show()
+#plt.close()
+# conclusion: The red line represents the actual price distribution, while the blue line represents the predicted price distribution.
+# The closer the blue line is to the red line, the better our model is performing.  
+# In this case, the two lines are very close to each other, which means our model is performing very well.
+
+#Polynomial Regression and Pipelines
+
+def PlotPolly(model, independent_variable, dependent_variabble, Name):
+    x_new = np.linspace(15, 55, 100)
+    y_new = model(x_new)
+
+    plt.plot(independent_variable, dependent_variabble, '.', x_new, y_new, '-')
+    plt.title('Polynomial Fit with Matplotlib for Price ~ Length')
+    ax = plt.gca()
+    ax.set_facecolor((0.898, 0.898, 0.898))
+    fig = plt.gcf()
+    plt.xlabel(Name)
+    plt.ylabel('Price of Cars')
+
+    #plt.show()
+    #plt.close()
+
+x = usedcars_df['highway-mpg']
+y = usedcars_df['price']
+# Here we use a polynomial of the 3rd order (cubic) 
+f = np.polyfit(x, y, 3)
+p = np.poly1d(f)
+#print(p)
+#PlotPolly(p, x, y, 'highway-mpg')
+np.polyfit(x, y, 3)
+# conclusion:We can conclude that the polynomial function of the 3rd order (cubic) fits the data very well.
+
+# 11oder polynomial
+f1 = np.polyfit(x, y, 11)
+p1 = np.poly1d(f1)
+#print(p1)
+#PlotPolly(p1, x, y, 'highway-mpg')
+# conclusion: We can conclude that the polynomial function of the 11th order fits the data very well.
+
+from sklearn.preprocessing import PolynomialFeatures
+pr=PolynomialFeatures(degree=2, include_bias=False)
+pr
+Z_pr=pr.fit_transform(Z)
+print(Z.shape)  
+print(Z_pr.shape)
+
+#Pipelines
+
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+Input = [('scale', StandardScaler()), ('polynomial', PolynomialFeatures(include_bias=False)), ('model', LinearRegression())]
+pipe = Pipeline(Input)
+print(pipe)
+
+Z = Z.astype(float)
+pipe.fit(Z,y)
+
+ypipe=pipe.predict(Z)
+print(ypipe[0:4])
+
+Input1 = [('scale', StandardScaler()), ('model', LinearRegression())]
+pipe1 = Pipeline(Input1)
+print(pipe1)
+pipe1.fit(Z,y)
+ypipe1=pipe1.predict(Z)
+print(ypipe1[0:10])
+
+#MSE and R^2 evaluation metrics
+from sklearn.metrics import mean_squared_error
+
+# Linear regression
+lm.fit(X, Y)
+print("The R^2 is: ", lm.score(X, Y))
+Yhat=lm.predict(X)
+print("The MSE is: ", mean_squared_error(usedcars_df['price'], Yhat))
+
+# Multiple linear regression
+lm.fit(Z, usedcars_df['price'])
+print("The R^2 is: ", lm.score(Z, usedcars_df['price']))
+Yhat=lm.predict(Z)
+print("The MSE is: ", mean_squared_error(usedcars_df['price'], Yhat))
+
+# Polynomial regression
+from sklearn.metrics import r2_score
+x = usedcars_df['highway-mpg']
+y = usedcars_df['price']
+f = np.polyfit(x, y, 3)
+p = np.poly1d(f)
+yhat = p(x)
+print("The R^2 is: ", r2_score(y, yhat))
+print("The MSE is: ", mean_squared_error(usedcars_df['price'], yhat))   
+print(mean_squared_error(usedcars_df['price'], yhat))
+#conclusion: Based on the R^2 and MSE values, we can see that the multiple linear regression model performs better 
+# than the simple linear regression and polynomial regression models.
+
+#Prediction and Decision Making
+new_input=np.arange(1, 100, 1).reshape(-1, 1)
+lm.fit(X, Y)
+yhat=lm.predict(new_input)
+yhat[0:5]
+plt.plot(new_input, yhat)
+#Conclusion: The plot shows the predicted price values for highway-mpg values ranging from 1 to 100.
